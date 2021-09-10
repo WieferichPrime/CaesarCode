@@ -3,7 +3,7 @@ from main import encode
 from collections import Counter
 
 f = open('warFirstPart.txt')
-text = f.read().lower().replace('\n', '')
+text = f.read().lower()
 bigrammsGlobalOrder = Counter()
 for word in re.findall(r'[а-яё]+', text):
     for i in range(len(word) - 1):
@@ -42,22 +42,5 @@ while pos < len(text):
         pos = match.end()
     else:
         pos += 1
-
-# frequency = dict(sorted(list(frequency().items()), key=lambda item : item[1], reverse=True))
-# frequencyKeys = list(frequency.keys())
-# for char in textEncoded:
-#     if char in frequencyKeys:
-#         charsCount[char] += 1
-#
-# pos = 0
-# charsCountKeys = list(dict(charsCount.most_common()).keys())
-# for char in textEncoded:
-#     if char in frequencyKeys:
-#         decoded = frequencyKeys[charsCountKeys.index(char)]
-#         if pos >= len(textEncoded) - 1: break
-#         textEncoded = textEncoded[:pos] + decoded + textEncoded[pos+1:]
-#     if pos >= len(textEncoded): break
-#     pos += 1
-
 
 open('war_decoded.txt', 'w').write(text)
